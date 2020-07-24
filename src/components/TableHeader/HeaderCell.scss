@@ -1,0 +1,24 @@
+.arrowBlock {
+  position: relative;
+  margin-bottom: 10px;
+  flex-direction: column;
+  align-content: center;
+  font-size: 11px;
+  color: lightgray;
+  margin-right: 0.5rem;
+  span {
+    position: absolute;
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    svg: {
+      fill: currentColor;
+    }
+  }
+  .active {
+    color: #1890ff;
+  }
+  .disabled {
+    display: none;
+  }
+}

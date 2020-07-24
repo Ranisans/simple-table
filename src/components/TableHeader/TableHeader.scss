@@ -1,0 +1,19 @@
+.header_cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 0 5px;
+  border-radius: 2px;
+  border: 1px dashed gray;
+  user-select: none;
+}
+
+.cell_id {
+  width: 50px;
+}
+
+.cell_first_name {
+  width: 120px;
+}
