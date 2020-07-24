@@ -3,6 +3,7 @@ import React from 'react';
 import HeaderCell from './HeaderCell';
 import FilterContext from '../filterContext';
 
+import '../Table.scss';
 import './TableHeader.scss';
 
 export default {
