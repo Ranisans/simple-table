@@ -2,6 +2,18 @@
   display: flex;
 }
 
+.table_cell {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 0 5px;
+  border-radius: 2px;
+  border: 1px dashed gray;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .cell_id {
   width: 50px;
 }
