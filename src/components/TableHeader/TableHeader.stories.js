@@ -4,7 +4,6 @@ import TableHeader from './index';
 import FilterContext from '../filterContext';
 
 import '../Table.scss';
-import './TableHeader.scss';
 
 import tableCellData from '../tableCellData';
 
