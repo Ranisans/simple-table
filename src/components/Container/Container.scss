@@ -28,7 +28,7 @@
   top: 0;
   left: 0;
   background-color: white;
-  height: 50%;
+  height: 500px;
   width: 100%;
   box-sizing: border-box;
   z-index: 100;
@@ -51,7 +51,7 @@
 }
 
 .hidden {
-  transform: translateY(-100%);
+  transform: translateY(-1000px);
 }
 
 .close {
