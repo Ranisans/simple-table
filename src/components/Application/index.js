@@ -23,13 +23,12 @@ const Application = () => {
     defaultFilterValue,
   );
 
-  const updateDataset = (data) => {
-    setActiveFilter(defaultFilterValue);
-    setDataSet(data);
-    setIsLoading(true);
-  };
-
   React.useEffect(() => {
+    const updateDataset = (data) => {
+      setActiveFilter(defaultFilterValue);
+      setDataSet(data);
+      setIsLoading(true);
+    };
     if (dataSetUrl !== '') {
       fetch(dataSetUrl)
         .then((response) => response.json())
@@ -66,7 +65,7 @@ const Application = () => {
   const addRowCallback = (newRow) => {
     setIsLoading(false);
     const data = JSON.parse(JSON.stringify(dataSet));
-    data.push(newRow);
+    data.unshift(newRow);
     setDataSet(data);
     setIsLoading(true);
   };

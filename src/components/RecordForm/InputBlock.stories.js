@@ -20,6 +20,7 @@ export const Base = () => {
       value={value}
       callback={setValue}
       inputClass={inputClass[0]}
+      placeholder={title}
     />
   );
 };
@@ -35,12 +36,14 @@ export const TwoInput = () => {
       value={value1}
       callback={setValue1}
       inputClass={inputClass[0]}
+      placeholder={titles[0]}
     />
     <InputBlock
       title={titles[1]}
       value={value2}
       callback={setValue2}
       inputClass={inputClass[1]}
+      placeholder={titles[1]}
     />
     </div>
   );
