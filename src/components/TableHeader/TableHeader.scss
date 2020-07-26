@@ -1,3 +1,10 @@
+.table_header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+}
+
 .header_cell {
   display: flex;
   justify-content: space-between;
