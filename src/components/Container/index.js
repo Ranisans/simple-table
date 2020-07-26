@@ -26,7 +26,7 @@ const Container = ({ rowsData }) => {
   const changePage = (direction) => {
     let newIndex = page + direction;
     if (newIndex > pagesCount) {
-      newIndex = pagesCount;
+      newIndex = pagesCount || 1;
     } else if (newIndex <= 0) {
       newIndex = 1;
     }
