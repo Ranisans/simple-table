@@ -7,14 +7,14 @@ import testData from './testData';
 
 import '../Table.scss';
 
+import {
+  rowHeight, keys, viewportHeight,
+} from '../constants.json';
+
 export default {
   title: 'Virtual Table',
   component: VirtualTable,
 };
-
-const rowHeight = 30;
-const viewportHeight = 500;
-const keys = ['id', 'firstName', 'lastName', 'email', 'phone'];
 
 export const Base = () => {
   const [activeFilter, setActiveFilter] = React.useState(

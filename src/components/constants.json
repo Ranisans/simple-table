@@ -1,0 +1,6 @@
+{
+  "recordPerPage" : 50,
+  "rowHeight": 30,
+  "viewportHeight": 500,
+  "keys": ["id", "firstName", "lastName", "email", "phone"]
+}
