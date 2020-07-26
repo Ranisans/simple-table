@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Row = ({ rowData, keys, classList }) => (
+const Row = ({ rowData, cellData }) => (
   <div className="table_row">
-    { keys.map((singleKey, index) => (
+    { cellData.map((singleKey) => (
         <div
-          className={`table_cell ${classList[index].cellClass}`}
-          key={classList[index].cellClass}
-        >{rowData[singleKey]}
+          className={`table_cell ${singleKey.cellClass}`}
+          key={singleKey.cellClass}
+        >{rowData[singleKey.key]}
         </div>
     ))
     }

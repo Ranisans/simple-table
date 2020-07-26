@@ -2,7 +2,13 @@
   "recordPerPage" : 50,
   "rowHeight": 30,
   "viewportHeight": 500,
-  "keys": ["id", "firstName", "lastName", "email", "phone"],
+  "cellData": [
+    { "cellClass": "cell_id", "label": "Id", "key": "id" },
+    { "cellClass": "cell_first_name", "label": "First Name", "key": "firstName"},
+    { "cellClass": "cell_last_name", "label": "Last Name", "key": "lastName" },
+    { "cellClass": "cell_email", "label": "Email", "key": "email" },
+    { "cellClass": "cell_phone", "label": "Phone", "key": "phone" }
+  ],
   "smaltDatasetUrl": "http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}",
   "bigDatasetUrl": "http://www.filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}"
 }

@@ -26,7 +26,7 @@ const useScrollAware = () => {
 };
 
 const VirtualTable = ({
-  rowsData, rowHeight, viewportHeight, keys, classList,
+  rowsData, rowHeight, viewportHeight, cellData,
 }) => {
   const rowsCount = rowsData.length;
   const totalHeight = rowsCount * rowHeight;
@@ -47,14 +47,14 @@ const VirtualTable = ({
 
   return (
     <div className="table" ref={ref}>
-      <TableHeader headersCellData={classList}/>
+      <TableHeader cellData={cellData}/>
       <div className='viewport' style={{ height: totalHeight }}>
         <div style={{
           willChange: 'transform',
           transform: `translateY(${offsetY}px)`,
         }}>
           {visibleRows.map((rowData, index) => (
-            <Row rowData={rowData} keys={keys} classList={classList} key={index.toString()} />
+            <Row rowData={rowData} cellData={cellData} key={index.toString()} />
           ))}
         </div>
       </div>

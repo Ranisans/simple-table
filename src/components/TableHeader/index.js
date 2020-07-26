@@ -4,10 +4,13 @@ import HeaderCell from './HeaderCell';
 
 import './TableHeader.scss';
 
-const TableHeader = ({ headersCellData }) => (
+const TableHeader = ({ cellData }) => (
   <div className="table_row table_header">
-    {headersCellData.map((cellData) => (
-      <HeaderCell cellClass={cellData.cellClass} label={cellData.label} key={cellData.cellClass} />
+    {cellData.map((singleKey) => (
+      <HeaderCell
+        cellData={singleKey}
+        key={singleKey.key}
+      />
     ))}
   </div>
 );

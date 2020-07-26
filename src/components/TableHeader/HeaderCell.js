@@ -3,7 +3,7 @@ import FilterContext from '../filterContext';
 
 import './HeaderCell.scss';
 
-const HeaderCell = ({ cellClass, label }) => {
+const HeaderCell = ({ cellData }) => {
   const { activeFilter, toggleActiveFilter } = React.useContext(FilterContext);
   const [isFilterIncrease, setIsFilterIncrease] = React.useState(null);
 
@@ -11,20 +11,20 @@ const HeaderCell = ({ cellClass, label }) => {
     if (isFilterIncrease === null) {
       setIsFilterIncrease(true);
       toggleActiveFilter({
-        activeClassCell: cellClass,
+        activeCellId: cellData.key,
         increase: true,
       });
     } else {
       setIsFilterIncrease(!isFilterIncrease);
       toggleActiveFilter({
-        activeClassCell: cellClass,
+        activeCellId: cellData.key,
         increase: !isFilterIncrease,
       });
     }
   };
 
   React.useEffect(() => {
-    if (activeFilter.activeClassCell !== cellClass && isFilterIncrease !== null) {
+    if (activeFilter.activeCellId !== cellData.key && isFilterIncrease !== null) {
       setIsFilterIncrease(null);
     }
   }, [activeFilter]);
@@ -32,8 +32,8 @@ const HeaderCell = ({ cellClass, label }) => {
   return (
     <FilterContext.Consumer>
     {() => (
-      <div className={`header_cell ${cellClass}`} onClick={clickHandler}>
-        <span>{label}</span>
+      <div className={`header_cell ${cellData.cellClass}`} onClick={clickHandler}>
+        <span>{cellData.label}</span>
         <span className='arrowBlock'>
           <span className={isFilterIncrease === true ? 'active' : 'disabled'}>
             <svg viewBox="0 0 1024 1024" focusable="false" width="1em" height="1em">

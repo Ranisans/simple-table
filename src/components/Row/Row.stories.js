@@ -4,7 +4,9 @@ import Row from './index';
 
 import '../Table.scss';
 
-import tableCellData from '../tableCellData';
+import {
+  cellData,
+} from '../constants.json';
 
 export default {
   title: 'Row',
@@ -23,15 +25,13 @@ const testRowData = {
   description: 'egestas at massa quis tincidunt sed pulvinar vestibulum donec nec curabitur suspendisse lacus quis amet amet magna hendrerit eget etiam sollicitudin nec ipsum lorem nunc consequat molestie sit sapien pretium malesuada lacus',
 };
 
-const keys = ['id', 'firstName', 'lastName', 'email', 'phone'];
-
 export const Base = () => (
-  <Row rowData={testRowData} keys={keys} classList={tableCellData} />
+  <Row rowData={testRowData} cellData={cellData} />
 );
 
 export const TwoRows = () => (
   <div>
-    <Row rowData={testRowData} keys={keys} classList={tableCellData} />
-    <Row rowData={testRowData} keys={keys} classList={tableCellData} />
+    <Row rowData={testRowData} cellData={cellData} />
+    <Row rowData={testRowData} cellData={cellData} />
   </div>
 );

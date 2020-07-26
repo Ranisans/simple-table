@@ -6,6 +6,10 @@ import FilterContext from '../filterContext';
 import '../Table.scss';
 import './TableHeader.scss';
 
+import {
+  cellData,
+} from '../constants.json';
+
 export default {
   title: 'Header Cell',
   component: HeaderCell,
@@ -14,7 +18,7 @@ export default {
 export const Base = () => {
   const [activeFilter, setActiveFilter] = React.useState(
     {
-      activeClassCell: '',
+      activeCellId: '',
       increase: true,
     },
   );
@@ -22,7 +26,7 @@ export const Base = () => {
     <FilterContext.Provider
       value={{ activeFilter, toggleActiveFilter: setActiveFilter }}
     >
-      <HeaderCell cellClass='cell_id' label='ID' />
+      <HeaderCell cellData={cellData[0]} />
     </FilterContext.Provider>
   );
 };
@@ -30,7 +34,7 @@ export const Base = () => {
 export const TwoCellTogether = () => {
   const [activeFilter, setActiveFilter] = React.useState(
     {
-      activeClassCell: '',
+      activeCellId: '',
       increase: true,
     },
   );
@@ -38,8 +42,8 @@ export const TwoCellTogether = () => {
     <FilterContext.Provider
       value={{ activeFilter, toggleActiveFilter: setActiveFilter }}
     >
-      <HeaderCell cellClass='cell_id' label='ID' />
-      <HeaderCell cellClass='cell_first_name' label='First Name' />
+      <HeaderCell cellData={cellData[0]} />
+      <HeaderCell cellData={cellData[1]} />
     </FilterContext.Provider>
   );
 };

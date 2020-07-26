@@ -8,7 +8,7 @@ import testData from './testData';
 import '../Table.scss';
 
 import {
-  rowHeight, keys, viewportHeight,
+  rowHeight, cellData, viewportHeight,
 } from '../constants.json';
 
 export default {
@@ -19,7 +19,7 @@ export default {
 export const Base = () => {
   const [activeFilter, setActiveFilter] = React.useState(
     {
-      activeClassCell: '',
+      activeCellId: '',
       increase: true,
     },
   );
@@ -31,7 +31,7 @@ export const Base = () => {
         rowsData={testData}
         rowHeight={rowHeight}
         viewportHeight={viewportHeight}
-        keys={keys}
+        cellData={cellData}
         classList={tableCellData}
       />
     </FilterContext.Provider>

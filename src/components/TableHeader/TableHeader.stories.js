@@ -3,9 +3,11 @@ import React from 'react';
 import TableHeader from './index';
 import FilterContext from '../filterContext';
 
-import '../Table.scss';
+import {
+  cellData,
+} from '../constants.json';
 
-import tableCellData from '../tableCellData';
+import '../Table.scss';
 
 export default {
   title: 'Table Header',
@@ -15,7 +17,7 @@ export default {
 export const Base = () => {
   const [activeFilter, setActiveFilter] = React.useState(
     {
-      activeClassCell: '',
+      activeCellId: '',
       increase: true,
     },
   );
@@ -23,7 +25,7 @@ export const Base = () => {
     <FilterContext.Provider
       value={{ activeFilter, toggleActiveFilter: setActiveFilter }}
     >
-      <TableHeader headersCellData={tableCellData} />
+      <TableHeader cellData={cellData} />
     </FilterContext.Provider>
   );
 };

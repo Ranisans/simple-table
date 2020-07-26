@@ -3,10 +3,9 @@ import React from 'react';
 import VirtualTable from '../VirtualTable';
 import RecordForm from '../RecordForm';
 import FilterContext from '../filterContext';
-import tableCellData from '../tableCellData';
 
 import {
-  recordPerPage, rowHeight, keys, viewportHeight,
+  recordPerPage, rowHeight, cellData, viewportHeight,
 } from '../constants.json';
 
 import './Container.scss';
@@ -18,7 +17,7 @@ const Container = ({ rowsData }) => {
   const [rowsChunk, setRowChunk] = React.useState(rowsData.slice(0, recordPerPage));
   const [activeFilter, setActiveFilter] = React.useState(
     {
-      activeClassCell: '',
+      activeCellId: '',
       increase: true,
     },
   );
@@ -56,8 +55,7 @@ const Container = ({ rowsData }) => {
         rowsData={rowsChunk}
         rowHeight={rowHeight}
         viewportHeight={viewportHeight}
-        keys={keys}
-        classList={tableCellData}
+        cellData={cellData}
       />
         <div className="control_panel">
           <label htmlFor="page_input" className="control_panel_label">Change Page</label>
