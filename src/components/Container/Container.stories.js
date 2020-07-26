@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Container from './index';
+import FilterContext from '../filterContext';
 
 import testData from '../VirtualTable/testData';
 
@@ -9,6 +10,18 @@ export default {
   component: Container,
 };
 
-export const Base = () => (
-  <Container rowsData={testData} />
-);
+export const Base = () => {
+  const [activeFilter, setActiveFilter] = React.useState(
+    {
+      activeCellId: '',
+      increase: true,
+    },
+  );
+  return (
+    <FilterContext.Provider
+      value={{ activeFilter, toggleActiveFilter: setActiveFilter }}
+    >
+      <Container rowsData={testData} />
+    </FilterContext.Provider>
+  );
+};
