@@ -2,6 +2,7 @@ import React from 'react';
 
 import Spinner from '../Spinner';
 import Container from '../Container';
+import ErrorWindow from '../ErrorWindow';
 import FilterContext from '../filterContext';
 import sorting from './sortingLogic';
 
@@ -81,7 +82,7 @@ const Application = () => {
         </div>
         { dataSetUrl
           ? <div>
-            {isError && <div>Something Went Wrong!</div>}
+            {isError && <ErrorWindow />}
             {!isLoading
               ? <Spinner />
               : <Container rowsData={dataSet} addRowCallback={addRowCallback} />
