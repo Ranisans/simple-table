@@ -1,0 +1,27 @@
+.form_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.record_form {
+  &_id {
+    width: 50px
+  };
+  &_first_name {
+    width: 150px
+  };
+  &_last_name {
+    width: 150px
+  };
+  &_email {
+    width: 150px
+  };
+  &_phone {
+    width: 150px
+  };
+  &_submit {
+    width: 40px;
+    height: 30px;
+    margin-top: 5px;
+  }
+};
