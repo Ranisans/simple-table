@@ -53,8 +53,8 @@ const VirtualTable = ({
           willChange: 'transform',
           transform: `translateY(${offsetY}px)`,
         }}>
-          {visibleRows.map((rowData, index) => (
-            <Row rowData={rowData} cellData={cellData} key={index.toString()} />
+          {visibleRows.map((rowData) => (
+            <Row rowData={rowData} cellData={cellData} key={`${rowData.firstName}${rowData.lastName}`} />
           ))}
         </div>
       </div>

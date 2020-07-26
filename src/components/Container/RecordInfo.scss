@@ -1,0 +1,10 @@
+.record_box {
+  margin-top: 10px;
+
+  &_description{
+    width: 20rem;
+    height: 8rem;
+    resize: none;
+    overflow-y: scroll;
+  }
+}

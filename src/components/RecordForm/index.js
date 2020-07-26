@@ -12,7 +12,17 @@ const RecordForm = ({ callback }) => {
     if (id && firstName && lastName && email && phone) {
       e.preventDefault();
       callback({
-        id, firstName, lastName, email, phone,
+        id,
+        firstName,
+        lastName,
+        email,
+        phone,
+        address: {
+          streetAddress: '',
+          city: '',
+          state: '',
+          zip: '',
+        },
       });
     }
   };

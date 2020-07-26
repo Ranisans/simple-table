@@ -2,6 +2,7 @@ import React from 'react';
 
 import VirtualTable from '../VirtualTable';
 import RecordForm from '../RecordForm';
+import RecordInfo from './RecordInfo';
 
 import {
   recordPerPage, rowHeight, cellData, viewportHeight,
@@ -9,11 +10,13 @@ import {
 
 import './Container.scss';
 
-const Container = ({ rowsData }) => {
-  const [pagesCount, setPagesCount] = React.useState(0);
+const Container = ({ rowsData, addRowCallback }) => {
+  const ref = React.createRef();
 
+  const [pagesCount, setPagesCount] = React.useState(0);
   const [page, setPage] = React.useState(1);
   const [rowsChunk, setRowChunk] = React.useState(rowsData.slice(0, recordPerPage));
+  const [selectedRecord, setSelectedRecord] = React.useState('');
 
   const changeChunk = (newPage) => {
     const startIndex = (newPage - 1) * recordPerPage;
@@ -31,6 +34,16 @@ const Container = ({ rowsData }) => {
     changeChunk(newPage);
   };
 
+  const clickHandler = (e) => {
+    setSelectedRecord(e.detail.record);
+  };
+
+  React.useEffect(() => {
+    const tableContainer = ref.current;
+    tableContainer.addEventListener('data', clickHandler);
+    return () => { tableContainer.removeEventListener('click', clickHandler); };
+  }, []);
+
   React.useEffect(() => {
     setPagesCount(Math.ceil(rowsData.length / recordPerPage));
     changeChunk(page);
@@ -46,11 +59,11 @@ const Container = ({ rowsData }) => {
 
   const createNewRecord = (data) => {
     modalRecordForm.current.classList.add('hidden');
-    console.log(data);
+    addRowCallback(data);
   };
 
   return (
-    <div className="table_container">
+    <div className="table_container" ref={ref} >
       <VirtualTable
         rowsData={rowsChunk}
         rowHeight={rowHeight}
@@ -64,6 +77,10 @@ const Container = ({ rowsData }) => {
         <button className="control_panel_button" onClick={() => { changePage(1); }}>{'>>'}</button>
 
         <button className="control_panel_add_record" onClick={showRecordForm}>Add Record</button>
+
+        {!selectedRecord ? null
+          : <RecordInfo record={selectedRecord} />
+        }
 
         <div className="modal_form hidden" ref={modalRecordForm}>
           <div className="modal_form_container">

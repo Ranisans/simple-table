@@ -62,6 +62,14 @@ const Application = () => {
     }
   }, [activeFilter]);
 
+  const addRowCallback = (newRow) => {
+    setIsLoading(false);
+    const data = JSON.parse(JSON.stringify(dataSet));
+    data.push(newRow);
+    setDataSet(data);
+    setIsLoading(true);
+  };
+
   return (
     <FilterContext.Provider
     value={{ activeFilter, toggleActiveFilter: setActiveFilter }}
@@ -74,7 +82,10 @@ const Application = () => {
         { dataSetUrl
           ? <div>
             {isError && <div>Something Went Wrong!</div>}
-            {!isLoading ? <Spinner /> : <Container rowsData={dataSet} /> }
+            {!isLoading
+              ? <Spinner />
+              : <Container rowsData={dataSet} addRowCallback={addRowCallback} />
+            }
           </div>
           : null
         }
