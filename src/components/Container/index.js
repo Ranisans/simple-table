@@ -1,6 +1,7 @@
 import React from 'react';
 
 import VirtualTable from '../VirtualTable';
+import RecordForm from '../RecordForm';
 import FilterContext from '../filterContext';
 import tableCellData from '../tableCellData';
 
@@ -33,6 +34,19 @@ const Container = ({ rowsData }) => {
     setRowChunk(rowsData.slice(newIndex - 1, newIndex - 1 + recordPerPage));
   };
 
+  const modalRecordForm = React.createRef();
+  const showRecordForm = () => {
+    modalRecordForm.current.classList.remove('hidden');
+  };
+  const hideRecordForm = () => {
+    modalRecordForm.current.classList.add('hidden');
+  };
+
+  const createNewRecord = (data) => {
+    modalRecordForm.current.classList.add('hidden');
+    console.log(data);
+  };
+
   return (
     <FilterContext.Provider
       value={{ activeFilter, toggleActiveFilter: setActiveFilter }}
@@ -50,7 +64,16 @@ const Container = ({ rowsData }) => {
           <button className="control_panel_button" onClick={() => { changePage(-1); }}>{'<<'}</button>
           <input id="page_input" type="number" className="control_panel_page_input" value={page} readOnly/>
           <button className="control_panel_button" onClick={() => { changePage(1); }}>{'>>'}</button>
-          <button className="control_panel_add_record">Add Record</button>
+
+          <button className="control_panel_add_record" onClick={showRecordForm}>Add Record</button>
+
+          <div className="modal_form hidden" ref={modalRecordForm}>
+            <div className="modal_form_container">
+              <div className="close" onClick={hideRecordForm}></div>
+              <p className="modal_form_title">Create New Record</p>
+              <RecordForm callback={createNewRecord} />
+            </div>
+          </div>
         </div>
       </div>
     </FilterContext.Provider>
