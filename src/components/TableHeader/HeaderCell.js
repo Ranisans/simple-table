@@ -27,6 +27,7 @@ const HeaderCell = ({ cellData }) => {
     if (activeFilter.activeCellId !== cellData.key && isFilterIncrease !== null) {
       setIsFilterIncrease(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeFilter]);
 
   return (

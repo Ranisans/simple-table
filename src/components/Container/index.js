@@ -42,6 +42,7 @@ const Container = ({ rowsData, addRowCallback }) => {
     const tableContainer = ref.current;
     tableContainer.addEventListener('data', clickHandler);
     return () => { tableContainer.removeEventListener('click', clickHandler); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   React.useEffect(() => {
@@ -53,6 +54,7 @@ const Container = ({ rowsData, addRowCallback }) => {
     } else {
       changeChunk(page);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rowsData]);
 
   const modalRecordForm = React.createRef();

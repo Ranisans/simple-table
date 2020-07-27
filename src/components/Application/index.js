@@ -43,6 +43,7 @@ const Application = () => {
           setIsError(true);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataSetUrl]);
 
   const changeDatasetUrl = (url) => {
@@ -65,6 +66,7 @@ const Application = () => {
       setDataSet(data);
       setIsLoading(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeFilter]);
 
   const addRowCallback = (newRow) => {

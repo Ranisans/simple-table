@@ -14,6 +14,7 @@ const Row = ({ rowData, cellData }) => {
     }
     row.addEventListener('click', (e) => { dispatch(e); });
     return () => { row.removeEventListener('click', dispatch); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
