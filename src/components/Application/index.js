@@ -8,6 +8,8 @@ import ControlPanel from './ControlPanel';
 import sorting from './sortingLogic';
 import filterLogic from './filterLogic';
 
+import '../Table.scss';
+
 const Application = () => {
   const [dataSetUrl, setDataSetUrl] = React.useState('');
   const [dataSet, setDataSet] = React.useState([]);

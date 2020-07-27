@@ -11,7 +11,7 @@ const ControlPanel = ({ changeDatasetUrl, applyFilter }) => {
   };
 
   return (
-    <div className="control_panel">
+    <div className="top_control_panel">
       <button
         onClick={() => { changeDatasetUrl(smaltDatasetUrl); }}
         className="control_panel_button"

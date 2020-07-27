@@ -1,6 +1,8 @@
 import React from 'react';
 import InputBlock from './InputBlock';
 
+import './RecordForm.scss';
+
 const RecordForm = ({ callback }) => {
   const [id, setId] = React.useState('');
   const [firstName, setFirstName] = React.useState('');
