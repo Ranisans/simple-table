@@ -6,10 +6,12 @@ import ErrorWindow from '../ErrorWindow';
 import FilterContext from '../filterContext';
 import ControlPanel from './ControlPanel';
 import sorting from './sortingLogic';
+import filterLogic from './filterLogic';
 
 const Application = () => {
   const [dataSetUrl, setDataSetUrl] = React.useState('');
   const [dataSet, setDataSet] = React.useState([]);
+  const [originalDataSet, setOriginalDataSet] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
@@ -26,6 +28,7 @@ const Application = () => {
     const updateDataset = (data) => {
       setActiveFilter(defaultFilterValue);
       setDataSet(data);
+      setOriginalDataSet(data);
       setIsLoading(true);
     };
     if (dataSetUrl !== '') {
@@ -44,6 +47,7 @@ const Application = () => {
     setIsLoading(false);
     setIsError(false);
     setDataSet([]);
+    setOriginalDataSet([]);
 
     // otherwise, useEffect won't work
     setDataSetUrl('');
@@ -66,11 +70,21 @@ const Application = () => {
     const data = JSON.parse(JSON.stringify(dataSet));
     data.unshift(newRow);
     setDataSet(data);
+    setOriginalDataSet(data);
     setIsLoading(true);
   };
 
   const applyFilter = (filterValue) => {
-    console.log('applyFilter -> filterValue', filterValue);
+    if (filterValue !== '') {
+      const lowerCaseFilter = filterValue.toLowerCase();
+      setIsLoading(false);
+      const data = filterLogic(originalDataSet, lowerCaseFilter);
+      setDataSet(data);
+      setIsLoading(true);
+    } else {
+      setDataSet(originalDataSet);
+      setActiveFilter(defaultFilterValue);
+    }
   };
 
   return (

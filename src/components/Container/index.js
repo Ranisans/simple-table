@@ -45,8 +45,14 @@ const Container = ({ rowsData, addRowCallback }) => {
   }, []);
 
   React.useEffect(() => {
-    setPagesCount(Math.ceil(rowsData.length / recordPerPage));
-    changeChunk(page);
+    const pages = Math.ceil(rowsData.length / recordPerPage);
+    setPagesCount(pages);
+    if (page > pages) {
+      changeChunk(1);
+      setPage(1);
+    } else {
+      changeChunk(page);
+    }
   }, [rowsData]);
 
   const modalRecordForm = React.createRef();
