@@ -4,9 +4,8 @@ import Spinner from '../Spinner';
 import Container from '../Container';
 import ErrorWindow from '../ErrorWindow';
 import FilterContext from '../filterContext';
+import ControlPanel from './ControlPanel';
 import sorting from './sortingLogic';
-
-import { smaltDatasetUrl, bigDatasetUrl } from '../constants.json';
 
 const Application = () => {
   const [dataSetUrl, setDataSetUrl] = React.useState('');
@@ -70,15 +69,16 @@ const Application = () => {
     setIsLoading(true);
   };
 
+  const applyFilter = (filterValue) => {
+    console.log('applyFilter -> filterValue', filterValue);
+  };
+
   return (
     <FilterContext.Provider
     value={{ activeFilter, toggleActiveFilter: setActiveFilter }}
     >
       <div className="application">
-        <div className="application_control_panel">
-          <button onClick={() => { changeDatasetUrl(smaltDatasetUrl); }}>Small Dataset</button>
-          <button onClick={() => { changeDatasetUrl(bigDatasetUrl); }}>Big Dataset</button>
-        </div>
+        <ControlPanel changeDatasetUrl={changeDatasetUrl} applyFilter={applyFilter} />
         { dataSetUrl
           ? <div>
             {isError && <ErrorWindow />}

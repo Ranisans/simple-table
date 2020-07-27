@@ -1,0 +1,16 @@
+.control_panel {
+  display: flex;
+}
+
+.filter_container {
+  margin-left: 20px;
+  &_input {
+    margin-left: 3px;
+    box-sizing: border-box;
+    height: 30px;
+    width: 100px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    text-align: center;
+  }
+}
