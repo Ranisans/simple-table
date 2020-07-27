@@ -1,6 +1,6 @@
 # Simple Table
 
-## Steps To Start a Project
+## Steps To Run The Project
 * clone this repo - 
   ```bash
     git clone https://github.com/Ranisans/simple-table.git
@@ -32,7 +32,7 @@ if you want to use docker, run these commands:
     docker build -t simple-table/react-app .
   ```
   
-  for build docker image
+  to build docker image
 
 * then 
 
